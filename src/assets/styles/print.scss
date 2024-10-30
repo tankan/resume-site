@@ -1,0 +1,33 @@
+@media print {
+  // 隐藏不需要打印的元素
+  .nav-header,
+  .nav-footer,
+  .theme-switch,
+  .language-switch,
+  .print-hide {
+    display: none !important;
+  }
+
+  // 打印时的页面设置
+  @page {
+    size: A4;
+    margin: 2cm;
+  }
+
+  // 打印时的布局调整
+  body {
+    font-size: 12pt;
+    line-height: 1.3;
+  }
+
+  // 避免内容被分页
+  h1,
+  h2,
+  h3 {
+    page-break-after: avoid;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+}

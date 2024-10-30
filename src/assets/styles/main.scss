@@ -1,0 +1,55 @@
+@forward "variables";
+@forward "dark";
+@forward "print";
+@forward "transitions";
+@forward "responsive";
+
+// 首先导入变量和 mixins
+@use "variables" as *;
+@use "mixins" as *;
+
+// 然后导入其他样式模块
+@use "dark";
+@use "print";
+@use "transitions";
+@use "responsive";
+
+// 全局样式
+:root {
+  --el-color-primary: #409eff;
+  --el-color-success: #67c23a;
+  --el-color-warning: #e6a23c;
+  --el-color-danger: #f56c6c;
+  --el-color-info: #909399;
+}
+
+html {
+  font-size: var(--font-size-base);
+}
+
+body {
+  font-family: var(--font-family-base);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+// 响应式容器
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-medium);
+
+  @include mobile {
+    max-width: 100%;
+  }
+
+  @include tablet {
+    max-width: var(--breakpoint-md);
+  }
+
+  @include desktop {
+    max-width: var(--breakpoint-lg);
+  }
+}

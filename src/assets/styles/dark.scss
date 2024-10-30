@@ -1,0 +1,32 @@
+html.dark {
+  // Element Plus 暗色主题变量
+  --el-color-primary: var(--theme-primary);
+  --el-bg-color: var(--theme-background);
+  --el-text-color-primary: var(--theme-textPrimary);
+  --el-text-color-regular: var(--theme-textRegular);
+
+  // 应用暗色主题
+  background-color: var(--theme-background);
+  color: var(--theme-textPrimary);
+
+  .nav-header {
+    background-color: var(--theme-background);
+
+    .logo a {
+      color: var(--theme-textPrimary);
+    }
+  }
+
+  .nav-footer {
+    background-color: var(--theme-background);
+  }
+
+  .el-card {
+    background-color: var(--theme-background);
+    border-color: var(--el-border-color);
+
+    .el-card__header {
+      border-color: var(--el-border-color);
+    }
+  }
+}

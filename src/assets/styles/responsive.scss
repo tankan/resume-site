@@ -1,0 +1,98 @@
+@use "variables" as *;
+
+// 响应式布局
+@mixin mobile {
+  @media screen and (max-width: $breakpoint-sm) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: $breakpoint-sm) and (max-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: $breakpoint-lg) {
+    @content;
+  }
+}
+
+// 响应式容器
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 var(--spacing-medium);
+
+  @include mobile {
+    max-width: 100%;
+  }
+
+  @include tablet {
+    max-width: var(--breakpoint-md);
+  }
+
+  @include desktop {
+    max-width: var(--breakpoint-lg);
+  }
+}
+
+// 通用响应式类
+.hide-on-mobile {
+  @include mobile {
+    display: none !important;
+  }
+}
+
+.show-on-mobile {
+  display: none !important;
+  @include mobile {
+    display: block !important;
+  }
+}
+
+// 响应式网格
+.responsive-grid {
+  display: grid;
+  gap: 20px;
+
+  @include mobile {
+    grid-template-columns: 1fr;
+  }
+
+  @include tablet {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include desktop {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// 响应式字体
+html {
+  font-size: 16px;
+
+  @include mobile {
+    font-size: 14px;
+  }
+
+  @include tablet {
+    font-size: 15px;
+  }
+}
+
+// 响应式间距
+:root {
+  --space-unit: 1rem;
+  --space-xs: calc(0.25 * var(--space-unit));
+  --space-sm: calc(0.5 * var(--space-unit));
+  --space-md: calc(1 * var(--space-unit));
+  --space-lg: calc(1.5 * var(--space-unit));
+  --space-xl: calc(2 * var(--space-unit));
+
+  @include mobile {
+    --space-unit: 0.875rem;
+  }
+}
